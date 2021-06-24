@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="emp" class="com.te.springcorexml.beans.EmployeeBean" scope="prototype" >
+	</bean>
+
+	<bean class="com.te.springcorexml.beans.EmployeeBean" id="empOne">
+		<constructor-arg   name="id"  value="100"  />  
+		<constructor-arg name="name" value="Pavan" /> 
+		<constructor-arg name="dept"  ref="department" />
+	</bean>
+	
+	<bean class="com.te.springcorexml.beans.EmployeeBean" id="empTwo" >
+			<property name="id" value="200" />
+			<property name="name" value="Rohan" />
+			<property name="dept" ref="department" />
+	</bean>
+	
+	<bean id="department" class="com.te.springcorexml.beans.Department">
+		<constructor-arg name="did" value="10" />
+		<constructor-arg name="dname" value="DEV" />
+	</bean>
+	
+	<bean id="student" class="com.te.springcorexml.beans.Student">
+		<constructor-arg name="id" value="1" />
+		<constructor-arg name="name" value="Sidhart"/>
+		<constructor-arg name="teacher" ref="teacher"/>
+	</bean>
+	
+	<bean id="teacher" class="com.te.springcorexml.beans.Teacher">
+		<constructor-arg name="id" value="101" />
+		<constructor-arg  name="name" value="pritom "/>
+		<constructor-arg name="subject" value="java" />
+	</bean>
+	
+	<bean id="os" class="com.te.springcorexml.beans.Os" >
+	<property name="processor" value="2.2GHz" />
+	<property name="ram" value="6" />
+	</bean>
+	
+	<bean id="mobile" class="com.te.springcorexml.beans.Mobile">
+		<property name="id" value="3476" />
+		<property name="name" value="Zync" />
+		<property name="os" ref="os" />
+	</bean>
+	
+</beans>
